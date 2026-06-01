@@ -93,13 +93,13 @@ export default function About() {
 
           <div className={styles.rightCol} data-anim>
             <div className={styles.imageWrapper}>
-              <div className={styles.imagePlaceholder}>
-                <span className={styles.imagePlaceholderIcon}>👨‍💻</span>
-                <span>avatar.jpg</span>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text3)', textAlign: 'center', padding: '0 2rem' }}>
-                  Add public/images/avatar.jpg
-                </span>
-              </div>
+              <Image
+                src="/images/avatar.jpg"
+                alt="Isam Khan"
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'top' }}
+                priority
+              />
             </div>
             <div className={styles.imageGlow} />
             <div className={styles.tagRow}>
