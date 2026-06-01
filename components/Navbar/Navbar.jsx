@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Certs', href: '#certifications' },
+  { label: 'Certifications', href: '#certifications' },
   { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact', cta: true },
 ]
