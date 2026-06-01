@@ -45,7 +45,7 @@
 }
 
 .dot.orange {
-  background: var(--orange);
+  background: var(--accent);
   box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2), 0 0 15px rgba(249, 115, 22, 0.4);
 }
 
@@ -115,7 +115,7 @@
 .company {
   font-family: 'DM Mono', monospace;
   font-size: 0.8rem;
-  color: var(--orange);
+  color: var(--accent);
   letter-spacing: 0.05em;
   margin-bottom: 1.25rem;
   display: flex;

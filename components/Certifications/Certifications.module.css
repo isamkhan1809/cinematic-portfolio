@@ -129,7 +129,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--orange);
+  color: var(--accent);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -142,7 +142,7 @@
   content: '';
   width: 3rem;
   height: 1px;
-  background: var(--orange);
+  background: var(--accent);
   opacity: 0.4;
 }
 
@@ -170,7 +170,7 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--orange), var(--amber));
+  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
 }
 
 .progressCard:hover {
@@ -208,7 +208,7 @@
 .progressStatus {
   font-family: 'DM Mono', monospace;
   font-size: 0.65rem;
-  color: var(--orange);
+  color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -224,7 +224,7 @@
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, var(--orange), var(--amber));
+  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
   border-radius: 100px;
   animation: progressPulse 2s ease-in-out infinite;
 }

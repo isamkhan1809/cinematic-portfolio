@@ -38,7 +38,7 @@ export default function CinematicLayer() {
       const colors = new Float32Array(count * 3)
       const sizes = new Float32Array(count)
 
-      const orange = new THREE.Color(0xf97316)
+      const orange = new THREE.Color(0x00d4ff)
       const white = new THREE.Color(0xe8f1ff)
       const blue = new THREE.Color(0x3b82f6)
 

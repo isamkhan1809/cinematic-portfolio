@@ -4,17 +4,17 @@
   --bg: #06090e;
   --surface: #0f1620;
   --surface2: #141e2e;
-  --accent: #3b82f6;
-  --accent-glow: rgba(59, 130, 246, 0.3);
-  --teal: #2dd4bf;
-  --orange: #f97316;
-  --orange-glow: rgba(249, 115, 22, 0.3);
-  --amber: #f59e0b;
+  --accent: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.3);
+  --teal: #7b2fff;
+  --orange: #00d4ff;
+  --orange-glow: rgba(0, 212, 255, 0.3);
+  --amber: #38bdf8;
   --text: #e8f1ff;
   --text2: #94a3b8;
   --text3: #64748b;
   --border: rgba(255,255,255,0.06);
-  --border-accent: rgba(59, 130, 246, 0.2);
+  --border-accent: rgba(0, 212, 255, 0.2);
   --radius: 12px;
   --radius-lg: 20px;
 }
@@ -108,25 +108,25 @@ section {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--teal) 100%);
+  background: linear-gradient(135deg, #00d4ff 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .orange-gradient {
-  background: linear-gradient(135deg, var(--orange) 0%, var(--amber) 100%);
+  background: linear-gradient(135deg, #00d4ff 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .glow-blue {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15), 0 0 60px rgba(59, 130, 246, 0.05);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.15), 0 0 60px rgba(0, 212, 255, 0.05);
 }
 
 .glow-orange {
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.15), 0 0 60px rgba(249, 115, 22, 0.05);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.15), 0 0 60px rgba(0, 212, 255, 0.05);
 }
 
 .glass-card {

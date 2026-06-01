@@ -45,7 +45,7 @@
 }
 
 .card.primary::before {
-  background: linear-gradient(90deg, var(--orange), var(--amber));
+  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
   transform: scaleX(1);
 }
 
