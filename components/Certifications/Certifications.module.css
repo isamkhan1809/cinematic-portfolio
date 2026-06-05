@@ -1,3 +1,19 @@
+.viewCert {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+.viewCert:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--accent);
+}
+
 .section {
   padding: 8rem 0;
   overflow: hidden;

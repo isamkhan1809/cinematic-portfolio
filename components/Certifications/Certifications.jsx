@@ -4,10 +4,19 @@ import styles from './Certifications.module.css'
 
 const earned = [
   {
+    icon: '🏅',
+    name: 'IBM AI Developer Professional',
+    issuer: 'IBM / Coursera',
+    date: 'May 2026',
+    note: 'Professional Certificate',
+    certUrl: '/certs/ibm-ai-developer.pdf',
+  },
+  {
     icon: '🎓',
     name: 'Google AI Essentials',
     issuer: 'Google',
     date: 'May 2026',
+    certUrl: '/certs/google-ai-essentials.pdf',
   },
   {
     icon: '🤖',
@@ -15,12 +24,14 @@ const earned = [
     issuer: 'Google / Coursera',
     date: 'May 2026',
     note: '7-course specialisation',
+    certUrl: '/certs/google-ai-professional.pdf',
   },
   {
     icon: '🐙',
     name: 'GitHub Foundations',
     issuer: 'GitHub',
     date: 'May 2026',
+    certUrl: '/certs/github-foundations.png',
   },
 ]
 
@@ -89,6 +100,16 @@ export default function Certifications() {
               <div className={styles.certName}>{c.name}</div>
               <div className={styles.certIssuer}>{c.issuer}{c.note ? ` · ${c.note}` : ''}</div>
               <div className={styles.certDate}>Completed {c.date}</div>
+              {c.certUrl && (
+                <a
+                  href={c.certUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.viewCert}
+                >
+                  View Certificate ↗
+                </a>
+              )}
             </div>
           ))}
         </div>
