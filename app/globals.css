@@ -31,6 +31,7 @@ html {
 }
 
 body {
+  cursor: none;
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
