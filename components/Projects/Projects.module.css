@@ -1,16 +1,16 @@
 .computerWrap {
   width: 100%;
-  height: 380px;
+  height: 460px;
   position: relative;
-  margin: -1rem 0 0;
+  margin: 1.5rem 0 0;
 }
 .computerHint {
   text-align: center;
   font-size: 0.7rem;
   color: var(--text3);
   letter-spacing: 0.08em;
-  margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
 }
 
 .section {
@@ -29,7 +29,7 @@
 }
 
 .header {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .filterRow {
