@@ -4,41 +4,41 @@ import styles from './Certifications.module.css'
 
 const earned = [
   {
-    icon: '🏅',
     name: 'IBM AI Developer Professional',
     issuer: 'IBM / Coursera',
     date: 'May 2026',
     note: 'Professional Certificate',
+    thumbUrl: '/certs/ibm-ai-developer.jpg',
     certUrl: '/certs/ibm-ai-developer.pdf',
   },
   {
-    icon: '🎓',
     name: 'Google AI Essentials',
     issuer: 'Google',
     date: 'May 2026',
+    thumbUrl: '/certs/google-ai-essentials.jpg',
     certUrl: '/certs/google-ai-essentials.pdf',
   },
   {
-    icon: '🤖',
     name: 'Google AI Professional',
     issuer: 'Google / Coursera',
     date: 'May 2026',
     note: '7-course specialisation',
+    thumbUrl: '/certs/google-ai-professional.jpg',
     certUrl: '/certs/google-ai-professional.pdf',
   },
   {
-    icon: '🐙',
     name: 'GitHub Foundations',
     issuer: 'GitHub',
     date: 'May 2026',
-    certUrl: '/certs/github-foundations.png',
+    thumbUrl: '/certs/github-foundations.jpg',
+    certUrl: '/certs/github-foundations.jpg',
     isImage: true,
   },
   {
-    icon: '🧱',
     name: 'Databricks Generative AI Fundamentals',
     issuer: 'Databricks',
     date: 'May 2026',
+    thumbUrl: '/certs/databricks-genai.jpg',
     certUrl: '/certs/databricks-genai.pdf',
   },
 ]
@@ -110,17 +110,22 @@ export default function Certifications() {
         </div>
         <div className={styles.earnedGrid}>
           {earned.map((c) => (
-            <div className={`${styles.certCard} ${styles.earned}`} key={c.name} data-anim>
+            <div className={`${styles.certCard} ${styles.earned}`} key={c.name} data-anim
+              onClick={() => setActiveCert(c)} role="button" tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setActiveCert(c)}>
               <div className={styles.checkmark}>✓</div>
-              <div className={styles.certLogoWrap}>{c.icon}</div>
-              <div className={styles.certName}>{c.name}</div>
-              <div className={styles.certIssuer}>{c.issuer}{c.note ? ` · ${c.note}` : ''}</div>
-              <div className={styles.certDate}>Completed {c.date}</div>
-              {c.certUrl && (
-                <button className={styles.viewCert} onClick={() => setActiveCert(c)}>
-                  View Certificate ↗
-                </button>
-              )}
+              {/* Certificate thumbnail */}
+              <div className={styles.certThumbWrap}>
+                <img src={c.thumbUrl} alt={c.name} className={styles.certThumb} />
+                <div className={styles.certThumbOverlay}>
+                  <span className={styles.certThumbHint}>Click to view</span>
+                </div>
+              </div>
+              <div className={styles.certInfo}>
+                <div className={styles.certName}>{c.name}</div>
+                <div className={styles.certIssuer}>{c.issuer}{c.note ? ` · ${c.note}` : ''}</div>
+                <div className={styles.certDate}>Completed {c.date}</div>
+              </div>
             </div>
           ))}
         </div>
