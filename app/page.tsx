@@ -8,14 +8,12 @@ import Certifications from '@/components/Certifications/Certifications'
 import Education from '@/components/Education/Education'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer/Footer'
-import StarBackground from '@/components/StarBackground/StarBackground'
-import Cursor from '@/components/Cursor/Cursor'
+import ClientEffects from '@/components/ClientEffects/ClientEffects'
 
 export default function Home() {
   return (
     <>
-      <StarBackground />
-      <Cursor />
+      <ClientEffects />
       <Navbar />
       <main>
         <VideoIntro />
