@@ -259,7 +259,7 @@ export default function Projects() {
           <p className={styles.computerHint}>drag to rotate</p>
         </div>
 
-        <div className={styles.filterRow} data-anim>
+        <div className={styles.filterRow} data-anim style={{ marginTop: '1.5rem' }}>
           {filters.map(f => (
             <button
               key={f.key}

@@ -1,16 +1,19 @@
 .computerWrap {
   width: 100%;
-  height: 460px;
+  height: 420px;
   position: relative;
-  margin: 1.5rem 0 0;
+  margin: 1rem 0 0;
 }
 .computerHint {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0;
+  right: 0;
   text-align: center;
   font-size: 0.7rem;
   color: var(--text3);
   letter-spacing: 0.08em;
-  margin-top: 0.25rem;
-  margin-bottom: 2rem;
+  pointer-events: none;
 }
 
 .section {
