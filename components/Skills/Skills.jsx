@@ -1,6 +1,25 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import dynamic from 'next/dynamic'
 import styles from './Skills.module.css'
+
+const BallCanvas = dynamic(() => import('../canvas/BallCanvas'), { ssr: false })
+const ComputerCanvas = dynamic(() => import('../canvas/ComputerCanvas'), { ssr: false })
+
+const techBalls = [
+  { name: 'Python', icon: '/tech/python.svg' },
+  { name: 'PyTorch', icon: '/tech/pytorch.svg' },
+  { name: 'TensorFlow', icon: '/tech/tensorflow.svg' },
+  { name: 'React', icon: '/tech/react.svg' },
+  { name: 'Node.js', icon: '/tech/nodejs.svg' },
+  { name: 'TypeScript', icon: '/tech/typescript.svg' },
+  { name: 'Docker', icon: '/tech/docker.svg' },
+  { name: 'AWS', icon: '/tech/aws.svg' },
+  { name: 'Azure', icon: '/tech/azure.svg' },
+  { name: 'Git', icon: '/tech/git.svg' },
+  { name: 'Next.js', icon: '/tech/nextjs.svg' },
+  { name: 'JavaScript', icon: '/tech/javascript.svg' },
+]
 
 const skills = [
   { name: 'Python', percent: 90, meta: 'Primary language — ML/AI', orange: false },
@@ -86,6 +105,26 @@ export default function Skills() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* 3D Tech Balls */}
+        <div className={styles.ballsTitle} data-anim>Technologies</div>
+        <div className={styles.ballsGrid} data-anim>
+          {techBalls.map((t) => (
+            <div key={t.name} className={styles.ballWrap} title={t.name}>
+              <BallCanvas icon={t.icon} />
+            </div>
+          ))}
+        </div>
+
+        {/* 3D Computer Model */}
+        <div className={styles.computerSection} data-anim>
+          <div className={styles.computerLabel}>
+            <span className={styles.computerLabelText}>Interactive 3D Workspace — drag to rotate</span>
+          </div>
+          <div className={styles.computerCanvas}>
+            <ComputerCanvas />
+          </div>
         </div>
 
         <div className={styles.tagCloud} data-anim>
