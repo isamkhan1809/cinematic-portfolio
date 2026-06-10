@@ -1,6 +1,9 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
+import dynamic from 'next/dynamic'
 import styles from './Projects.module.css'
+
+const ComputerCanvas = dynamic(() => import('../canvas/ComputerCanvas'), { ssr: false })
 
 const projects = [
   {
@@ -247,6 +250,12 @@ export default function Projects() {
           <h2 className="section-title" data-anim>
             Things I&apos;ve <span className="orange-gradient">Built</span>
           </h2>
+        </div>
+
+        {/* 3D Computer */}
+        <div className={styles.computerWrap} data-anim>
+          <ComputerCanvas />
+          <p className={styles.computerHint}>drag to rotate</p>
         </div>
 
         <div className={styles.filterRow} data-anim>
