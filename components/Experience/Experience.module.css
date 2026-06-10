@@ -4,6 +4,63 @@
 }
 
 .header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.timelineRole {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0 0 0.25rem;
+}
+
+.timelineCompany {
+  font-size: 0.85rem;
+  color: #a78bfa;
+  margin: 0 0 1rem;
+  font-weight: 500;
+}
+
+.date {
+  color: #a78bfa !important;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem !important;
+}
+
+.bullets {
+  padding-left: 1.2rem;
+  margin: 0.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.bullets li {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.stackRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.stackTag {
+  background: rgba(109, 40, 217, 0.15);
+  border: 1px solid rgba(109, 40, 217, 0.3);
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.7rem;
+  color: #a78bfa;
+  font-family: 'DM Mono', monospace;
+}
+
+.header {
   margin-bottom: 4rem;
 }
 

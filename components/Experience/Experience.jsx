@@ -1,5 +1,10 @@
 'use client'
 import { useEffect, useRef } from 'react'
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
 import styles from './Experience.module.css'
 
 const experiences = [
@@ -9,6 +14,8 @@ const experiences = [
     location: 'London',
     period: 'Aug 2025 – Present',
     current: true,
+    iconBg: '#6d28d9',
+    icon: '🤖',
     bullets: [
       'Delivering end-to-end generative AI pipelines using LLMs and fine-tuning SLMs for production use',
       'Built MCP servers integrated with Azure CLI for natural language cloud infrastructure control',
@@ -25,6 +32,8 @@ const experiences = [
     location: 'London',
     period: 'Aug 2023 – Aug 2025',
     current: false,
+    iconBg: '#1e3a5f',
+    icon: '🛒',
     bullets: [
       'Delivered excellent customer service in a high-volume retail environment',
       'Developed strong communication, teamwork and time management skills',
@@ -37,6 +46,8 @@ const experiences = [
     location: 'London',
     period: 'Jun 2021 – Aug 2021',
     current: false,
+    iconBg: '#1e3a5f',
+    icon: '💼',
     bullets: [
       'Supported sales operations for a healthcare data technology company',
       'Gained exposure to B2B sales processes and CRM systems',
@@ -56,8 +67,8 @@ export default function Experience() {
       const el = sectionRef.current
       if (!el) return
       gsap.fromTo(el.querySelectorAll('[data-anim]'),
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 0.9, stagger: 0.15, ease: 'power3.out',
+        { opacity: 0, x: -40 },
+        { opacity: 1, x: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 75%' } }
       )
     }
@@ -73,34 +84,48 @@ export default function Experience() {
             Work <span className="gradient-text">History</span>
           </h2>
         </div>
-
-        <div className={styles.timeline}>
-          {experiences.map((exp, i) => (
-            <div className={styles.item} key={i} data-anim>
-              <div className={`${styles.dot} ${exp.current ? '' : styles.orange}`} />
-              <div className={styles.card}>
-                <div className={styles.cardTop}>
-                  <h3 className={styles.role}>{exp.role}</h3>
-                  <span className={`${styles.period} ${!exp.current ? styles.past : ''}`}>
-                    {exp.period}
-                  </span>
-                </div>
-                <div className={styles.company}>
-                  {exp.current ? '🔵' : '⚪'} {exp.company} · {exp.location}
-                </div>
-                <ul className={styles.bullets}>
-                  {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
-                </ul>
-                {exp.stack.length > 0 && (
-                  <div className={styles.stackRow}>
-                    {exp.stack.map(t => <span className={styles.stackTag} key={t}>{t}</span>)}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
+
+      <VerticalTimeline lineColor="rgba(109,40,217,0.3)">
+        {experiences.map((exp, i) => (
+          <VerticalTimelineElement
+            key={i}
+            contentStyle={{
+              background: 'rgba(17,24,39,0.85)',
+              border: '1px solid rgba(109,40,217,0.3)',
+              borderRadius: '1rem',
+              boxShadow: '0 4px 32px rgba(109,40,217,0.08)',
+              color: '#e2e8f0',
+            }}
+            contentArrowStyle={{ borderRight: '7px solid rgba(109,40,217,0.4)' }}
+            date={exp.period}
+            dateClassName={styles.date}
+            iconStyle={{
+              background: exp.iconBg,
+              border: '2px solid rgba(109,40,217,0.5)',
+              fontSize: '1.4rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 0 12px rgba(109,40,217,0.4)',
+            }}
+            icon={<span>{exp.icon}</span>}
+          >
+            <div>
+              <h3 className={styles.timelineRole}>{exp.role}</h3>
+              <p className={styles.timelineCompany}>{exp.company} · {exp.location}</p>
+            </div>
+            <ul className={styles.bullets}>
+              {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
+            </ul>
+            {exp.stack.length > 0 && (
+              <div className={styles.stackRow}>
+                {exp.stack.map(t => <span className={styles.stackTag} key={t}>{t}</span>)}
+              </div>
+            )}
+          </VerticalTimelineElement>
+        ))}
+      </VerticalTimeline>
     </section>
   )
 }

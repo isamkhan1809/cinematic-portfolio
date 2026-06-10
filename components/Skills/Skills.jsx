@@ -1,6 +1,36 @@
 'use client'
 import { useEffect, useRef } from 'react'
+import {
+  SiPython, SiTensorflow, SiPytorch, SiDocker,
+  SiReact, SiNextdotjs, SiNodedotjs, SiTypescript,
+  SiJavascript, SiGit, SiLangchain, SiOpenai, SiFirebase,
+  SiJupyter, SiLinux, SiPostgresql,
+} from 'react-icons/si'
+import { FaBrain, FaRobot, FaCloud, FaAws } from 'react-icons/fa'
 import styles from './Skills.module.css'
+
+const techIcons = [
+  { Icon: SiPython,         name: 'Python',        color: '#3776AB' },
+  { Icon: SiTensorflow,     name: 'TensorFlow',     color: '#FF6F00' },
+  { Icon: SiPytorch,        name: 'PyTorch',        color: '#EE4C2C' },
+  { Icon: FaBrain,          name: 'Gen AI',         color: '#a78bfa' },
+  { Icon: FaRobot,          name: 'Agentic AI',     color: '#34d399' },
+  { Icon: SiLangchain,      name: 'LangChain',      color: '#1C3C3C' },
+  { Icon: SiOpenai,         name: 'OpenAI',         color: '#74AA9C' },
+  { Icon: FaAws,             name: 'AWS',            color: '#FF9900' },
+  { Icon: FaCloud,          name: 'Azure',          color: '#0078D4' },
+  { Icon: SiDocker,         name: 'Docker',         color: '#2496ED' },
+  { Icon: SiReact,          name: 'React',          color: '#61DAFB' },
+  { Icon: SiNextdotjs,      name: 'Next.js',        color: '#ffffff' },
+  { Icon: SiNodedotjs,      name: 'Node.js',        color: '#339933' },
+  { Icon: SiTypescript,     name: 'TypeScript',     color: '#3178C6' },
+  { Icon: SiJavascript,     name: 'JavaScript',     color: '#F7DF1E' },
+  { Icon: SiGit,            name: 'Git',            color: '#F05032' },
+  { Icon: SiFirebase,       name: 'Firebase',       color: '#FFCA28' },
+  { Icon: SiJupyter,        name: 'Jupyter',        color: '#F37626' },
+  { Icon: SiPostgresql,     name: 'PostgreSQL',     color: '#4169E1' },
+  { Icon: SiLinux,          name: 'Linux',          color: '#FCC624' },
+]
 
 const skills = [
   { name: 'Python', percent: 90, meta: 'Primary language — ML/AI', orange: false },
@@ -100,9 +130,14 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className={styles.tagCloud} data-anim>
-          {techTags.map(t => (
-            <span className={styles.techTag} key={t}>{t}</span>
+        {/* Tech icon grid — inspired by space-portfolio skills section */}
+        <div className={styles.iconGridTitle} data-anim>Technologies</div>
+        <div className={styles.iconGrid} data-anim>
+          {techIcons.map(({ Icon, name, color }) => (
+            <div key={name} className={styles.iconCard} title={name}>
+              <Icon size={36} color={color} />
+              <span className={styles.iconLabel}>{name}</span>
+            </div>
           ))}
         </div>
       </div>

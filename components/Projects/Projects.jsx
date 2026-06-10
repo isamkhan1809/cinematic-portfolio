@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
+import Tilt from 'react-parallax-tilt'
 import styles from './Projects.module.css'
 
 const ComputerCanvas = dynamic(() => import('../canvas/ComputerCanvas'), { ssr: false })
@@ -272,35 +273,44 @@ export default function Projects() {
 
         <div className={styles.grid}>
           {filtered.map((p, i) => (
-            <div
-              className={`${styles.card} ${p.featured ? styles.featured : ''}`}
+            <Tilt
               key={p.name}
+              tiltMaxAngleX={8}
+              tiltMaxAngleY={8}
+              glareEnable
+              glareMaxOpacity={0.12}
+              glareColor="#a78bfa"
+              glarePosition="all"
+              scale={1.02}
+              transitionSpeed={400}
               data-anim
             >
-              <div className={styles.cardTop}>
-                <div className={`${styles.projectIcon} ${p.iconClass ? styles[p.iconClass] : ''}`}>
-                  {p.icon}
+              <div className={`${styles.card} ${p.featured ? styles.featured : ''}`}>
+                <div className={styles.cardTop}>
+                  <div className={`${styles.projectIcon} ${p.iconClass ? styles[p.iconClass] : ''}`}>
+                    {p.icon}
+                  </div>
+                  <span className={`${styles.badge} ${styles[p.badge]}`}>{p.badgeText}</span>
                 </div>
-                <span className={`${styles.badge} ${styles[p.badge]}`}>{p.badgeText}</span>
+
+                <div>
+                  <div className={styles.projectName}>{p.name}</div>
+                  <div className={styles.projectOrg}>{p.org}</div>
+                </div>
+
+                <p className={styles.projectDesc}>{p.desc}</p>
+
+                {p.highlights.length > 0 && (
+                  <ul className={styles.highlightList}>
+                    {p.highlights.map(h => <li key={h}>{h}</li>)}
+                  </ul>
+                )}
+
+                <div className={styles.stackRow}>
+                  {p.stack.map(t => <span className={styles.tag} key={t}>{t}</span>)}
+                </div>
               </div>
-
-              <div>
-                <div className={styles.projectName}>{p.name}</div>
-                <div className={styles.projectOrg}>{p.org}</div>
-              </div>
-
-              <p className={styles.projectDesc}>{p.desc}</p>
-
-              {p.highlights.length > 0 && (
-                <ul className={styles.highlightList}>
-                  {p.highlights.map(h => <li key={h}>{h}</li>)}
-                </ul>
-              )}
-
-              <div className={styles.stackRow}>
-                {p.stack.map(t => <span className={styles.tag} key={t}>{t}</span>)}
-              </div>
-            </div>
+            </Tilt>
           ))}
         </div>
       </div>
