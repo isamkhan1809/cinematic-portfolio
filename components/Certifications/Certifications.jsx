@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './Certifications.module.css'
 
 const earned = [
@@ -32,6 +32,14 @@ const earned = [
     issuer: 'GitHub',
     date: 'May 2026',
     certUrl: '/certs/github-foundations.png',
+    isImage: true,
+  },
+  {
+    icon: '🧱',
+    name: 'Databricks Generative AI Fundamentals',
+    issuer: 'Databricks',
+    date: 'May 2026',
+    certUrl: '/certs/databricks-genai.pdf',
   },
 ]
 
@@ -58,6 +66,7 @@ const inProgress = [
 
 export default function Certifications() {
   const sectionRef = useRef(null)
+  const [activeCert, setActiveCert] = useState(null)
 
   useEffect(() => {
     const runGsap = async () => {
@@ -73,6 +82,13 @@ export default function Certifications() {
       )
     }
     runGsap()
+  }, [])
+
+  // Close modal on Escape
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') setActiveCert(null) }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
   }, [])
 
   return (
@@ -93,7 +109,7 @@ export default function Certifications() {
           ✓ Earned Certifications
         </div>
         <div className={styles.earnedGrid}>
-          {earned.map((c, i) => (
+          {earned.map((c) => (
             <div className={`${styles.certCard} ${styles.earned}`} key={c.name} data-anim>
               <div className={styles.checkmark}>✓</div>
               <div className={styles.certLogoWrap}>{c.icon}</div>
@@ -101,14 +117,9 @@ export default function Certifications() {
               <div className={styles.certIssuer}>{c.issuer}{c.note ? ` · ${c.note}` : ''}</div>
               <div className={styles.certDate}>Completed {c.date}</div>
               {c.certUrl && (
-                <a
-                  href={c.certUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.viewCert}
-                >
+                <button className={styles.viewCert} onClick={() => setActiveCert(c)}>
                   View Certificate ↗
-                </a>
+                </button>
               )}
             </div>
           ))}
@@ -119,7 +130,7 @@ export default function Certifications() {
           ⚡ Currently In Training
         </div>
         <div className={styles.progressGrid}>
-          {inProgress.map((c, i) => (
+          {inProgress.map((c) => (
             <div className={styles.progressCard} key={c.name} data-anim>
               <div className={styles.progressIcon}>{c.icon}</div>
               <div className={styles.progressInfo}>
@@ -133,6 +144,27 @@ export default function Certifications() {
           ))}
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      {activeCert && (
+        <div className={styles.modalOverlay} onClick={() => setActiveCert(null)}>
+          <div className={styles.modalBox} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <span className={styles.modalTitle}>{activeCert.name}</span>
+              <button className={styles.modalClose} onClick={() => setActiveCert(null)}>✕</button>
+            </div>
+            {activeCert.isImage ? (
+              <img src={activeCert.certUrl} alt={activeCert.name} className={styles.modalImage} />
+            ) : (
+              <iframe
+                src={activeCert.certUrl}
+                className={styles.modalPdf}
+                title={activeCert.name}
+              />
+            )}
+          </div>
+        </div>
+      )}
     </section>
   )
 }

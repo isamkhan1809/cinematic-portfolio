@@ -3,15 +3,81 @@
   margin-top: 0.75rem;
   font-size: 0.75rem;
   color: var(--accent);
-  text-decoration: none;
+  background: none;
+  cursor: pointer;
   border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 6px;
   padding: 0.25rem 0.6rem;
   transition: background 0.2s, border-color 0.2s;
+  font-family: inherit;
 }
 .viewCert:hover {
   background: rgba(99, 102, 241, 0.1);
   border-color: var(--accent);
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.modalBox {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.modalTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text1);
+}
+.modalClose {
+  background: none;
+  border: none;
+  color: var(--text3);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.modalClose:hover {
+  color: var(--text1);
+  background: rgba(255,255,255,0.06);
+}
+.modalPdf {
+  width: 100%;
+  flex: 1;
+  min-height: 70vh;
+  border: none;
+}
+.modalImage {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
 }
 
 .section {
