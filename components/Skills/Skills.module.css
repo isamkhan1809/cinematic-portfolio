@@ -170,14 +170,26 @@
   font-size: 0.72rem;
   color: var(--text2);
   letter-spacing: 0.05em;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   cursor: default;
+  animation: float-tag 3s ease-in-out infinite;
+}
+/* Stagger float offset per nth-child, mimicking BallCanvas Float speed */
+.techTag:nth-child(odd)  { animation-delay: 0s; }
+.techTag:nth-child(even) { animation-delay: 1.5s; }
+.techTag:nth-child(3n)   { animation-delay: 0.8s; }
+
+@keyframes float-tag {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
 }
 
 .techTag:hover {
   border-color: var(--border-accent);
   color: var(--accent);
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(59, 130, 246, 0.08);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 4px 16px rgba(99,102,241,0.15);
 }
 
 @media (max-width: 768px) {

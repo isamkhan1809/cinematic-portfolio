@@ -1,3 +1,16 @@
+/* Vertical accent line from ladunjexa repo */
+.accentLine {
+  position: absolute;
+  left: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 240px;
+  background: linear-gradient(to bottom, #915EFF, transparent);
+  border-radius: 2px;
+  z-index: 6;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -324,6 +337,29 @@
   height: 50px;
   background: linear-gradient(to bottom, var(--accent), transparent);
   animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* Pill scroll indicator — from ladunjexa/reactjs18-3d-portfolio */
+.scrollPill {
+  width: 35px;
+  height: 64px;
+  border: 3px solid rgba(167, 139, 250, 0.6);
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6px;
+}
+.scrollDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #a78bfa;
+  animation: bounce-dot 1.5s ease-in-out infinite;
+}
+@keyframes bounce-dot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(28px); }
 }
 
 /* Scan line effect */

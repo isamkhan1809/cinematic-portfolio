@@ -33,9 +33,21 @@ export default function Skills() {
       const el = sectionRef.current
       if (!el) return
 
+      // Title slides in from left, like slideIn('left') in the 3D portfolio
+      gsap.fromTo(el.querySelector('.section-label'),
+        { x: -80, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 80%' } }
+      )
+      gsap.fromTo(el.querySelector('.section-title'),
+        { x: -60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, delay: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 80%' } }
+      )
+      // Cards fade up with stagger
       gsap.fromTo(el.querySelectorAll('[data-anim]'),
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out',
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.7, stagger: 0.07, ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 75%' } }
       )
 
