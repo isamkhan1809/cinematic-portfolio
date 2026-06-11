@@ -9,14 +9,16 @@ const earned = [
     date: 'May 2026',
     note: 'Professional Certificate',
     thumbUrl: '/certs/ibm-ai-developer.jpg',
-    certUrl: '/certs/ibm-ai-developer.pdf',
+    certUrl: '/certs/ibm-ai-developer.jpg',
+    isImage: true,
   },
   {
     name: 'Google AI Essentials',
     issuer: 'Google',
     date: 'May 2026',
     thumbUrl: '/certs/google-ai-essentials.jpg',
-    certUrl: '/certs/google-ai-essentials.pdf',
+    certUrl: '/certs/google-ai-essentials.jpg',
+    isImage: true,
   },
   {
     name: 'Google AI Professional',
@@ -24,7 +26,8 @@ const earned = [
     date: 'May 2026',
     note: '7-course specialisation',
     thumbUrl: '/certs/google-ai-professional.jpg',
-    certUrl: '/certs/google-ai-professional.pdf',
+    certUrl: '/certs/google-ai-professional.jpg',
+    isImage: true,
   },
   {
     name: 'GitHub Foundations',
@@ -39,7 +42,8 @@ const earned = [
     issuer: 'Databricks',
     date: 'May 2026',
     thumbUrl: '/certs/databricks-genai.jpg',
-    certUrl: '/certs/databricks-genai.pdf',
+    certUrl: '/certs/databricks-genai.jpg',
+    isImage: true,
   },
 ]
 
