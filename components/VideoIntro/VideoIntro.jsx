@@ -153,13 +153,6 @@ export default function VideoIntro() {
         Tap for sound
       </div>
 
-      {/* Scroll indicator — pill + bouncing dot (from ladunjexa/reactjs18-3d-portfolio) */}
-      <button className={styles.scrollIndicator} onClick={scrollDown} aria-label="Scroll down">
-        <div className={styles.scrollPill}>
-          <div className={styles.scrollDot} />
-        </div>
-        <span>scroll</span>
-      </button>
     </section>
   )
 }
