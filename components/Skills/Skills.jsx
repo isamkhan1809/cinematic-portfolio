@@ -6,30 +6,32 @@ import {
   SiJavascript, SiGit, SiLangchain, SiOpenai, SiFirebase,
   SiJupyter, SiLinux, SiPostgresql,
 } from 'react-icons/si'
-import { FaBrain, FaRobot, FaCloud, FaAws } from 'react-icons/fa'
+import { FaBrain, FaRobot, FaCloud, FaAws, FaServer, FaShieldAlt } from 'react-icons/fa'
 import styles from './Skills.module.css'
 
 const techIcons = [
-  { Icon: SiPython,         name: 'Python',        color: '#3776AB' },
-  { Icon: SiTensorflow,     name: 'TensorFlow',     color: '#FF6F00' },
-  { Icon: SiPytorch,        name: 'PyTorch',        color: '#EE4C2C' },
-  { Icon: FaBrain,          name: 'Gen AI',         color: '#a78bfa' },
-  { Icon: FaRobot,          name: 'Agentic AI',     color: '#34d399' },
-  { Icon: SiLangchain,      name: 'LangChain',      color: '#1C3C3C' },
-  { Icon: SiOpenai,         name: 'OpenAI',         color: '#74AA9C' },
-  { Icon: FaAws,             name: 'AWS',            color: '#FF9900' },
-  { Icon: FaCloud,          name: 'Azure',          color: '#0078D4' },
-  { Icon: SiDocker,         name: 'Docker',         color: '#2496ED' },
-  { Icon: SiReact,          name: 'React',          color: '#61DAFB' },
-  { Icon: SiNextdotjs,      name: 'Next.js',        color: '#ffffff' },
-  { Icon: SiNodedotjs,      name: 'Node.js',        color: '#339933' },
-  { Icon: SiTypescript,     name: 'TypeScript',     color: '#3178C6' },
-  { Icon: SiJavascript,     name: 'JavaScript',     color: '#F7DF1E' },
-  { Icon: SiGit,            name: 'Git',            color: '#F05032' },
-  { Icon: SiFirebase,       name: 'Firebase',       color: '#FFCA28' },
-  { Icon: SiJupyter,        name: 'Jupyter',        color: '#F37626' },
-  { Icon: SiPostgresql,     name: 'PostgreSQL',     color: '#4169E1' },
-  { Icon: SiLinux,          name: 'Linux',          color: '#FCC624' },
+  { Icon: SiPython,     name: 'Python',       color: '#3776AB', desc: 'Primary language for ML, AI pipelines, and backend services.' },
+  { Icon: SiTensorflow, name: 'TensorFlow',   color: '#FF6F00', desc: 'Deep learning framework for building and training neural networks.' },
+  { Icon: SiPytorch,    name: 'PyTorch',      color: '#EE4C2C', desc: 'Research-first deep learning with dynamic computation graphs.' },
+  { Icon: FaBrain,      name: 'Gen AI',       color: '#a78bfa', desc: 'LLMs, fine-tuning, RAG pipelines, and prompt engineering.' },
+  { Icon: FaRobot,      name: 'Agentic AI',   color: '#34d399', desc: 'Multi-step AI agents that plan, use tools, and execute workflows.' },
+  { Icon: SiLangchain,  name: 'LangChain',    color: '#1C3C3C', desc: 'Framework for chaining LLM calls, tools, and memory into pipelines.' },
+  { Icon: SiOpenai,     name: 'OpenAI',       color: '#74AA9C', desc: 'GPT models and APIs for text, embeddings, and multimodal AI.' },
+  { Icon: FaAws,        name: 'AWS',          color: '#FF9900', desc: 'Cloud infrastructure — Lambda, S3, EC2, and serverless deployments.' },
+  { Icon: FaCloud,      name: 'Azure',        color: '#0078D4', desc: 'Microsoft cloud — CLI, resource management, and AI services.' },
+  { Icon: SiDocker,     name: 'Docker',       color: '#2496ED', desc: 'Containerisation for reproducible builds and consistent deployments.' },
+  { Icon: SiReact,      name: 'React',        color: '#61DAFB', desc: 'Component-based UI library for building interactive web apps.' },
+  { Icon: SiNextdotjs,  name: 'Next.js',      color: '#ffffff', desc: 'Full-stack React framework with SSR, static export, and App Router.' },
+  { Icon: SiNodedotjs,  name: 'Node.js',      color: '#339933', desc: 'JavaScript runtime for fast, event-driven backend services.' },
+  { Icon: SiTypescript, name: 'TypeScript',   color: '#3178C6', desc: 'Typed JavaScript superset for safer, more maintainable code.' },
+  { Icon: SiJavascript, name: 'JavaScript',   color: '#F7DF1E', desc: 'Core web language for dynamic frontend and full-stack development.' },
+  { Icon: SiGit,        name: 'Git',          color: '#F05032', desc: 'Version control for tracking changes and team collaboration.' },
+  { Icon: SiFirebase,   name: 'Firebase',     color: '#FFCA28', desc: 'Google platform for real-time databases, auth, and cloud hosting.' },
+  { Icon: SiJupyter,    name: 'Jupyter',      color: '#F37626', desc: 'Interactive notebooks for data exploration and ML experiments.' },
+  { Icon: SiPostgresql, name: 'PostgreSQL',   color: '#4169E1', desc: 'Powerful relational database for structured data and complex queries.' },
+  { Icon: SiLinux,      name: 'Linux',        color: '#FCC624', desc: 'Unix-based OS for development, servers, and automation scripts.' },
+  { Icon: FaShieldAlt,  name: 'Pydantic AI',  color: '#e879f9', desc: 'Type-safe AI agent framework using Pydantic for structured LLM outputs.' },
+  { Icon: FaServer,     name: 'MCP Servers',  color: '#38bdf8', desc: 'Model Context Protocol — connects AI agents to tools and data sources.' },
 ]
 
 const skills = [
@@ -133,10 +135,14 @@ export default function Skills() {
         {/* Tech icon grid — inspired by space-portfolio skills section */}
         <div className={styles.iconGridTitle} data-anim>Technologies</div>
         <div className={styles.iconGrid} data-anim>
-          {techIcons.map(({ Icon, name, color }) => (
-            <div key={name} className={styles.iconCard} title={name}>
+          {techIcons.map(({ Icon, name, color, desc }) => (
+            <div key={name} className={styles.iconCard}>
               <Icon size={36} color={color} />
               <span className={styles.iconLabel}>{name}</span>
+              <div className={styles.iconTooltip}>
+                <span className={styles.iconTooltipName}>{name}</span>
+                <span className={styles.iconTooltipDesc}>{desc}</span>
+              </div>
             </div>
           ))}
         </div>
