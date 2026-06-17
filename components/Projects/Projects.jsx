@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
-import Tilt from 'react-parallax-tilt'
 import styles from './Projects.module.css'
 
 const ComputerCanvas = dynamic(() => import('../canvas/ComputerCanvas'), { ssr: false })
@@ -16,201 +15,278 @@ const projects = [
     badgeText: '🥇 1st Place',
     category: 'web',
     desc: 'Full-stack web app on AWS for Race Against Dementia charity. AI-powered academic paper analysis & peer review system — reduced review time from 6–12 months to instant and cost from £5,000 to £0.',
-    highlights: [
-      'Reduced peer review time from 6–12 months to instant',
-      'Eliminated £5,000 review cost per paper',
-      'AWS serverless architecture with Lambda & S3',
-      'AI analysis pipeline for research papers',
-    ],
     stack: ['AWS', 'S3', 'Lambda', 'CloudFormation', 'Full-Stack', 'AI Analysis'],
     featured: true,
   },
   {
+    icon: '🎙️',
+    name: 'AI Voice Agent',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Real-time speech-to-speech conversational assistant. Hold to talk — your voice goes through Whisper STT, Claude API, and ElevenLabs TTS in seconds.',
+    stack: ['Python', 'FastAPI', 'React', 'Whisper', 'Claude API', 'ElevenLabs'],
+  },
+  {
+    icon: '🕷️',
+    name: 'Autonomous Web Scraping Agent',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Give it a natural language goal and it plans and executes multi-step web scraping autonomously using Claude tool use and a Playwright browser, returning structured JSON.',
+    stack: ['Python', 'FastAPI', 'React', 'Claude API', 'Playwright'],
+  },
+  {
+    icon: '🧠',
+    name: 'Multi-Agent Research Assistant',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'LangGraph-orchestrated pipeline with specialist agents that search the web, summarise findings, and compile fully cited research reports on any topic.',
+    stack: ['Python', 'FastAPI', 'React', 'LangGraph', 'Claude API'],
+  },
+  {
+    icon: '📚',
+    name: 'RAG Knowledge Base Builder',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Upload PDFs, URLs, or plain text to build a ChromaDB vector store, then chat with your documents via a LangChain + Claude-powered Q&A interface with source citations.',
+    stack: ['Python', 'FastAPI', 'React', 'LangChain', 'ChromaDB', 'Claude API'],
+  },
+  {
+    icon: '🔬',
+    name: 'Multi-Model Benchmark Arena',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Runs the same prompt through Claude, GPT-4, and Ollama simultaneously, scoring each response against a rubric and comparing latency and cost side by side.',
+    stack: ['Python', 'FastAPI', 'React', 'Claude API', 'OpenAI', 'Ollama'],
+  },
+  {
+    icon: '✍️',
+    name: 'Prompt Optimisation Tool',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Iteratively rewrites prompts using the Claude API, scoring each version against a custom rubric and tracking improvement over rounds in a live React dashboard.',
+    stack: ['Python', 'FastAPI', 'React', 'Claude API'],
+  },
+  {
+    icon: '💼',
+    name: 'AI Job Screener',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Paste a job description and your resume to get an AI match score, skills gap analysis, and a tailored cover letter generated in seconds.',
+    stack: ['Python', 'FastAPI', 'React', 'Claude API'],
+  },
+  {
+    icon: '🤖',
+    name: 'GitHub PR Review Bot',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'GitHub Actions bot that automatically posts line-level AI code review comments with severity scores on every pull request — zero config beyond adding your API key.',
+    stack: ['Python', 'GitHub Actions', 'Claude API'],
+  },
+  {
     icon: '💪',
-    iconClass: '',
     name: 'AI-Powered Fitness Recommendation System',
     org: 'Final Year Project, Brunel University — 2023/24',
     badge: 'academic',
     badgeText: 'Academic',
     category: 'ml',
-    desc: 'ML fitness recommendation engine with separate models for muscle gain, fat loss, and strength training. Achieved 100% user testing success. Full-stack React application.',
-    highlights: [
-      '3 separate ML models for different fitness goals',
-      '100% user testing success rate',
-      'Full-stack React frontend + Python ML backend',
-      'Classification & recommendation algorithms',
-    ],
+    desc: 'ML fitness recommendation engine with separate models for muscle gain, fat loss, and strength training. Achieved 100% user testing success with a full-stack React application.',
     stack: ['Python', 'Machine Learning', 'React.js', 'Classification', 'REST API'],
-    featured: false,
+  },
+  {
+    icon: '🫁',
+    name: 'Medical Imaging Classifier',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'Transfer-learning model (ResNet18) trained on chest X-rays to classify pneumonia vs normal with 95%+ accuracy, including Grad-CAM heatmap visualisation of the decision region.',
+    stack: ['Python', 'PyTorch', 'Streamlit', 'Grad-CAM', 'ResNet18'],
+  },
+  {
+    icon: '⚽',
+    name: 'Football Player Performance Predictor',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'Uses StatsBomb open data to train ensemble ML models that predict next-season goals, assists, and xG for any player with interactive visualisations.',
+    stack: ['Python', 'Streamlit', 'Scikit-learn', 'Plotly', 'StatsBomb'],
+  },
+  {
+    icon: '💰',
+    name: 'Loan Default Risk Scorer',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'Predicts the probability of loan default using XGBoost with SHAP waterfall charts for explainability and a credit grade A–F output.',
+    stack: ['Python', 'Flask', 'XGBoost', 'SHAP', 'React', 'Vite'],
+  },
+  {
+    icon: '📉',
+    name: 'Customer Churn Prediction',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'ML pipeline identifying e-commerce customers likely to churn using Logistic Regression, Random Forest, and XGBoost with SMOTE-based class-imbalance correction.',
+    stack: ['Python', 'XGBoost', 'Scikit-learn', 'SMOTE', 'Flask'],
+  },
+  {
+    icon: '🔍',
+    name: 'Fraud Detection Using Anomaly Detection',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'Compares supervised (Neural Network) and unsupervised (Isolation Forest, Autoencoder, One-Class SVM) approaches against extreme class imbalance (~2% fraud rate).',
+    stack: ['Python', 'Keras', 'Scikit-learn', 'Isolation Forest', 'Autoencoder'],
+  },
+  {
+    icon: '🎵',
+    name: 'Music Data Analysis — Spotify Dataset',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'EDA and ML project investigating what makes songs popular. Applies K-Means and DBSCAN clustering to discover genre groupings and identifies danceability as the top predictor.',
+    stack: ['Python', 'K-Means', 'DBSCAN', 'PCA', 'Pandas', 'Seaborn'],
+  },
+  {
+    icon: '⚡',
+    name: 'Time Series Forecasting: Energy Consumption',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'Forecasts daily energy consumption using ARIMA, Prophet, and LSTM across three years of synthetic data, benchmarking classical, decomposition, and deep learning approaches.',
+    stack: ['Python', 'ARIMA', 'Prophet', 'LSTM', 'Keras', 'Statsmodels'],
+  },
+  {
+    icon: '🚌',
+    name: 'Predict Public Transport Delays',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'Predicts bus and train delays using weather conditions and city events. XGBoost outperforms baselines — precipitation and rush-hour rain are the strongest delay predictors.',
+    stack: ['Python', 'XGBoost', 'Random Forest', 'Linear Regression', 'Feature Engineering'],
+  },
+  {
+    icon: '📈',
+    name: 'Stock Sentiment Analyser',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Fetches recent news headlines for any ticker, scores sentiment using Claude Haiku, and correlates the sentiment trend against the stock\'s price history in a Streamlit dashboard.',
+    stack: ['Python', 'Streamlit', 'Plotly', 'yFinance', 'Claude Haiku'],
+  },
+  {
+    icon: '📊',
+    name: 'Algo Trading Backtester',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ml',
+    desc: 'Backtests Moving Average crossover, RSI, and MACD strategies on any ticker using yFinance data, reporting P&L, Sharpe ratio, and max drawdown via a Streamlit dashboard.',
+    stack: ['Python', 'Streamlit', 'Plotly', 'yFinance'],
+  },
+  {
+    icon: '📋',
+    name: 'AlphaLedger — Autonomous SEC Intelligence',
+    org: 'Personal Project',
+    badge: 'personal',
+    badgeText: 'Open Source',
+    category: 'ai',
+    desc: 'Mines 10-K filings across thousands of companies via SEC EDGAR to predict future earnings — zero cost, no Bloomberg. Supports Russell 3000 & S&P 500 with a Streamlit dashboard.',
+    stack: ['Python', 'Streamlit', 'SEC EDGAR API', 'NLP', 'Data Analysis'],
   },
   {
     icon: '☁️',
-    iconClass: '',
     name: 'Azure CLI MCP Server',
     org: 'Firemind — Confidential',
     badge: 'confidential',
     badgeText: 'Confidential',
     category: 'ai',
     desc: 'MCP server enabling natural language control of Azure cloud infrastructure. Engineers can provision, manage, and query Azure resources conversationally.',
-    highlights: [],
     stack: ['Python', 'MCP Protocol', 'Azure CLI', 'LLMs'],
-    featured: false,
   },
   {
     icon: '🤖',
-    iconClass: '',
     name: 'RPA MCP Server',
     org: 'Firemind — Confidential',
     badge: 'confidential',
     badgeText: 'Confidential',
     category: 'ai',
     desc: 'Browser and VM automation server using the MCP protocol. Enables agentic control of Windows and Linux virtual machines and web browsers.',
-    highlights: [],
     stack: ['Python', 'MCP Protocol', 'RPA', 'Browser Automation'],
-    featured: false,
   },
   {
     icon: '📊',
-    iconClass: '',
     name: 'Agentic Report Generation Workflow',
     org: 'Firemind — Confidential',
     badge: 'confidential',
     badgeText: 'Confidential',
     category: 'ai',
     desc: 'End-to-end agentic workflow that reads Excel campaign data, processes it through an LLM, and automatically pushes reports to Google DV360.',
-    highlights: [],
     stack: ['Python', 'Agentic AI', 'Excel', 'Google DV360', 'LLMs'],
-    featured: false,
   },
   {
     icon: '🧬',
-    iconClass: '',
     name: 'Synthetic Data Generation Pipeline',
     org: 'Firemind — Confidential',
     badge: 'confidential',
     badgeText: 'Confidential',
     category: 'ml',
     desc: 'Pipeline to generate high-quality synthetic training data for ML models, enabling safe development without exposing sensitive real-world data.',
-    highlights: [],
     stack: ['Python', 'LLMs', 'Data Engineering', 'ML Pipeline'],
-    featured: false,
   },
   {
     icon: '📄',
-    iconClass: '',
     name: 'TextExtract — ML Training Data Builder',
     org: 'Personal Project',
     badge: 'personal',
     badgeText: 'Open Source',
     category: 'web',
-    desc: 'Web app that extracts clean text from PDFs, Word docs, and URLs then exports structured JSON ready for LLM fine-tuning. Strips headers, footers, and noise — leaving only pure body text with OCR fallback for scanned PDFs.',
-    highlights: [],
+    desc: 'Web app that extracts clean text from PDFs, Word docs, and URLs then exports structured JSON ready for LLM fine-tuning, with OCR fallback for scanned PDFs.',
     stack: ['Python', 'FastAPI', 'React', 'LangChain', 'pdfplumber', 'Tesseract OCR'],
-    featured: false,
-  },
-  {
-    icon: '📉',
-    iconClass: '',
-    name: 'Customer Churn Prediction',
-    org: 'Personal Project',
-    badge: 'personal',
-    badgeText: 'Open Source',
-    category: 'ml',
-    desc: 'ML pipeline identifying e-commerce customers likely to churn using Logistic Regression, Random Forest, and XGBoost with SMOTE-based class-imbalance correction, deployed via a Flask web application.',
-    highlights: [],
-    stack: ['Python', 'XGBoost', 'Scikit-learn', 'SMOTE', 'Flask'],
-    featured: false,
-  },
-  {
-    icon: '🔍',
-    iconClass: '',
-    name: 'Fraud Detection Using Anomaly Detection',
-    org: 'Personal Project',
-    badge: 'personal',
-    badgeText: 'Open Source',
-    category: 'ml',
-    desc: 'Compares supervised (Neural Network) and unsupervised (Isolation Forest, Autoencoder, One-Class SVM) approaches to detecting fraudulent financial transactions against extreme class imbalance (~2% fraud rate).',
-    highlights: [],
-    stack: ['Python', 'Keras', 'Scikit-learn', 'Isolation Forest', 'Autoencoder'],
-    featured: false,
-  },
-  {
-    icon: '🎵',
-    iconClass: '',
-    name: 'Music Data Analysis — Spotify Dataset',
-    org: 'Personal Project',
-    badge: 'personal',
-    badgeText: 'Open Source',
-    category: 'ml',
-    desc: 'EDA and ML project investigating what makes songs popular using the Spotify Tracks Dataset. Applies K-Means and DBSCAN clustering to discover natural genre groupings and identifies danceability and energy as the strongest popularity predictors.',
-    highlights: [],
-    stack: ['Python', 'K-Means', 'DBSCAN', 'PCA', 'Pandas', 'Seaborn'],
-    featured: false,
-  },
-  {
-    icon: '⚡',
-    iconClass: '',
-    name: 'Time Series Forecasting: Energy Consumption',
-    org: 'Personal Project',
-    badge: 'personal',
-    badgeText: 'Open Source',
-    category: 'ml',
-    desc: 'Forecasts daily energy consumption using ARIMA, Prophet, and LSTM across three years of synthetic data, benchmarking classical statistics, decomposition-based, and deep learning approaches side-by-side.',
-    highlights: [],
-    stack: ['Python', 'ARIMA', 'Prophet', 'LSTM', 'Keras', 'Statsmodels'],
-    featured: false,
-  },
-  {
-    icon: '🚌',
-    iconClass: '',
-    name: 'Predict Public Transport Delays',
-    org: 'Personal Project',
-    badge: 'personal',
-    badgeText: 'Open Source',
-    category: 'ml',
-    desc: 'Predicts bus and train delays using weather conditions and city events. XGBoost outperforms baseline models — precipitation, visibility, and rush hour combined with rain are the strongest delay predictors.',
-    highlights: [],
-    stack: ['Python', 'XGBoost', 'Random Forest', 'Linear Regression', 'Feature Engineering'],
-    featured: false,
-  },
-  {
-    icon: '📈',
-    iconClass: '',
-    name: 'AlphaLedger — Autonomous SEC Intelligence',
-    org: 'Personal Project',
-    badge: 'personal',
-    badgeText: 'Open Source',
-    category: 'ai',
-    desc: 'Mines 10-K filings across thousands of companies using the SEC EDGAR API to predict future earnings — zero cost, no Bloomberg, no API keys. Supports Russell 3000, S&P 500, and custom indices with a Streamlit dashboard.',
-    highlights: [],
-    stack: ['Python', 'Streamlit', 'SEC EDGAR API', 'NLP', 'Data Analysis'],
-    featured: false,
   },
   {
     icon: '🏎️',
-    iconClass: '',
     name: 'F1 Race Replay',
     org: 'Personal Project',
     badge: 'personal',
     badgeText: 'Open Source',
     category: 'web',
-    desc: 'Animates real Formula 1 telemetry data using FastF1 and Python Arcade — GPS position at 50Hz, tyre compounds, DRS, safety car events and live leaderboard for every race from every season.',
-    highlights: [],
+    desc: 'Animates real Formula 1 telemetry data using FastF1 and Python Arcade — GPS position at 50Hz, tyre compounds, DRS, safety car events and live leaderboard.',
     stack: ['Python', 'FastF1', 'Arcade', 'Telemetry', 'Data Visualisation'],
-    featured: false,
   },
   {
     icon: '🚇',
-    iconClass: '',
     name: 'TFL Status — London Transport Live Checker',
     org: 'Personal Project',
     badge: 'personal',
     badgeText: 'Open Source',
     category: 'web',
     desc: 'Real-time London transport status checker covering Tube, Overground, and National Rail via the TFL Open API. Ask in plain English and get live disruption data instantly.',
-    highlights: [],
     stack: ['Next.js', 'TypeScript', 'TFL Open API', 'React'],
-    featured: false,
   },
 ]
 
@@ -220,6 +296,44 @@ const filters = [
   { key: 'ml', label: 'Machine Learning' },
   { key: 'web', label: 'Web / Cloud' },
 ]
+
+function FlipCard({ p }) {
+  return (
+    <div className={`${styles.flipWrap} ${p.featured ? styles.featured : ''}`}>
+      <div className={styles.flipInner}>
+        {/* FRONT */}
+        <div className={styles.flipFront}>
+          <div className={styles.cardTop}>
+            <div className={`${styles.projectIcon} ${p.iconClass ? styles[p.iconClass] : ''}`}>
+              {p.icon}
+            </div>
+            <span className={`${styles.badge} ${styles[p.badge]}`}>{p.badgeText}</span>
+          </div>
+          <div className={styles.projectName}>{p.name}</div>
+          <div className={styles.projectOrg}>{p.org}</div>
+          <p className={styles.projectDesc}>{p.desc}</p>
+        </div>
+
+        {/* BACK */}
+        <div className={styles.flipBack}>
+          <div className={styles.backHeader}>
+            <span className={styles.projectIcon}>{p.icon}</span>
+            <span className={styles.backTitle}>{p.name}</span>
+          </div>
+          <div className={styles.backOrgBadge}>
+            <span className={`${styles.badge} ${styles[p.badge]}`}>{p.badgeText}</span>
+            <span className={styles.projectOrg}>{p.org}</span>
+          </div>
+          <p className={styles.backDesc}>{p.desc}</p>
+          <div className={styles.backStackLabel}>Tech Stack</div>
+          <div className={styles.stackRow}>
+            {p.stack.map(t => <span className={styles.tag} key={t}>{t}</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Projects() {
   const sectionRef = useRef(null)
@@ -272,45 +386,8 @@ export default function Projects() {
         </div>
 
         <div className={styles.grid}>
-          {filtered.map((p, i) => (
-            <Tilt
-              key={p.name}
-              tiltMaxAngleX={8}
-              tiltMaxAngleY={8}
-              glareEnable
-              glareMaxOpacity={0.12}
-              glareColor="#a78bfa"
-              glarePosition="all"
-              scale={1.02}
-              transitionSpeed={400}
-              data-anim
-            >
-              <div className={`${styles.card} ${p.featured ? styles.featured : ''}`}>
-                <div className={styles.cardTop}>
-                  <div className={`${styles.projectIcon} ${p.iconClass ? styles[p.iconClass] : ''}`}>
-                    {p.icon}
-                  </div>
-                  <span className={`${styles.badge} ${styles[p.badge]}`}>{p.badgeText}</span>
-                </div>
-
-                <div>
-                  <div className={styles.projectName}>{p.name}</div>
-                  <div className={styles.projectOrg}>{p.org}</div>
-                </div>
-
-                <p className={styles.projectDesc}>{p.desc}</p>
-
-                {p.highlights.length > 0 && (
-                  <ul className={styles.highlightList}>
-                    {p.highlights.map(h => <li key={h}>{h}</li>)}
-                  </ul>
-                )}
-
-                <div className={styles.stackRow}>
-                  {p.stack.map(t => <span className={styles.tag} key={t}>{t}</span>)}
-                </div>
-              </div>
-            </Tilt>
+          {filtered.map((p) => (
+            <FlipCard key={p.name} p={p} />
           ))}
         </div>
       </div>
