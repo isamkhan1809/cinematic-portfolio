@@ -45,6 +45,14 @@ const earned = [
     certUrl: '/certs/databricks-genai.jpg',
     isImage: true,
   },
+  {
+    name: 'Databricks Certified Generative AI Engineer Associate',
+    issuer: 'Databricks',
+    date: 'May 2026',
+    thumbUrl: '/certs/databricks-genai-associate.jpg',
+    certUrl: '/certs/databricks-genai-associate.jpg',
+    isImage: true,
+  },
 ]
 
 const inProgress = [
