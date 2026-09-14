@@ -9,11 +9,26 @@ import styles from './Experience.module.css'
 
 const experiences = [
   {
+    role: 'Data Analyst (Contractor)',
+    company: 'FOIL | Data & AI',
+    location: 'London',
+    period: 'Jul 2026 – Aug 2026',
+    current: false,
+    iconBg: '#0f766e',
+    icon: '📊',
+    bullets: [
+      'Developed an AI-based customer journey analysis for a client using Azure Synapse, Python, PySpark and OpenAI LLMs across 5,000+ cases',
+      'Identified friction points, patterns and unresolved issues within customer support data',
+      'Produced datasets, visualisations and actionable recommendations to enhance customer support outcomes',
+    ],
+    stack: ['Python', 'PySpark', 'Azure Synapse', 'OpenAI', 'Data Analysis'],
+  },
+  {
     role: 'Junior AI Engineer',
     company: 'Firemind LTD',
     location: 'London',
-    period: 'Aug 2025 – Present',
-    current: true,
+    period: 'Aug 2025 – May 2026',
+    current: false,
     iconBg: '#6d28d9',
     icon: '🤖',
     bullets: [

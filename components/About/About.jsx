@@ -6,7 +6,7 @@ import styles from './About.module.css'
 const stats = [
   { number: '7+', label: 'Projects Built' },
   { number: '3+', label: 'Cloud Platforms' },
-  { number: '1st', label: 'AWS Hackathon 2026' },
+  { number: 'AWS', label: 'Hackathon 2026' },
   { number: 'BSc', label: 'CS & AI, Brunel' },
 ]
 
@@ -45,16 +45,16 @@ export default function About() {
             </h2>
 
             <p className={styles.bio} data-anim>
-              I&apos;m <strong>Isam Khan</strong>, a Junior AI Engineer at <strong>Firemind</strong> in London with a BSc Honours
-              in Computer Science & Artificial Intelligence from <strong>Brunel University London</strong>.
+              I&apos;m <strong>Isam Khan</strong>, a Computer Science &amp; AI graduate from <strong>Brunel University London</strong>.
+              I have worked as a <strong>Junior AI Engineer</strong> at <strong>Firemind</strong> and as a <strong>Data Analyst</strong> at <strong>FOIL | Data &amp; AI</strong> in London.
             </p>
             <p className={styles.bio} data-anim>
-              I specialise in <strong>generative AI systems</strong>, fine-tuning language models,
-              building <strong>MCP servers</strong> for natural language cloud control,
-              and designing end-to-end <strong>agentic workflows</strong> that automate the complex.
+              I specialise in <strong>generative AI systems</strong>, fine-tuning language models with LoRA/QLoRA,
+              building <strong>production RAG pipelines</strong> with hybrid retrieval, developing <strong>MCP servers</strong> for natural language cloud control,
+              designing <strong>multi-agent research systems</strong>, and shipping full-stack AI applications with real-time capabilities.
             </p>
             <p className={styles.bio} data-anim>
-              From winning the <strong>AWS Hackathon 2026</strong> to deploying production-grade AI pipelines —
+              From taking part in the <strong>AWS Hackathon 2026</strong> to deploying production-grade AI pipelines —
               I bridge the gap between cutting-edge research and real-world impact.
             </p>
 
